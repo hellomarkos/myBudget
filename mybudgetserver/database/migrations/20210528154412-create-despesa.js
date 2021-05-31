@@ -31,7 +31,7 @@ module.exports = {
         }
       },
       agendamento: {
-        allowNull: false,
+        allowNull: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
         references: {
