@@ -1,23 +1,23 @@
 module.exports = {
-    "development": {
-      "username": "postgres",
-      "password": "root",
-      "database": "mybudget_development",
-      "host": "172.21.0.2",
-      "dialect": "postgres"
-    },
-    "test": {
-      "username": "postgres",
-      "password": "root",
-      "database": "mybudget_test",
-      "host": "172.17.0.2",
-      "dialect": "postgres"
-    },
-    "production": {
-      "username": "postgres",
-      "password": "root",
-      "database": "mybudget_production",
-      "host": "172.17.0.2",
-      "dialect": "postgres"
-    }
+  "development": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "mybudget_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "mybudget_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "admin",
+    "database": "mybudget_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
 }
