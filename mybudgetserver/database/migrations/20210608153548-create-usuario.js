@@ -1,18 +1,24 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Agendamentos', {
+    return queryInterface.createTable('Usuarios', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      dataInicio: {
+      nome: {
+        type: Sequelize.STRING
+      },
+      email: {
+        type: Sequelize.DOUBLE
+      },
+      token: {
         type: Sequelize.DATE
       },
-      dataFim: {
-        type: Sequelize.DATE
+      gastoMaximo: {
+        type: Sequelize.DOUBLE
       },
       createdAt: {
         allowNull: false,
@@ -25,6 +31,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Agendamentos');
+    return queryInterface.dropTable('Usuarios');
   }
 };

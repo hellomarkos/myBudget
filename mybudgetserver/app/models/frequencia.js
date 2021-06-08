@@ -2,9 +2,12 @@
 module.exports = (sequelize, DataTypes) => {
   const Frequencia = sequelize.define('Frequencia', {
     descricao: DataTypes.STRING
-  }, {});
-  Frequencia.associate = function(models) {
-    // associations can be defined here
+  }, {
+    freezeTableName: true,
+    tableName: 'Frequencias'
+  });
+  Frequencia.associate = function (models) {
+    Frequencia.belongsTo(models.Agendamento);
   };
   return Frequencia;
 };

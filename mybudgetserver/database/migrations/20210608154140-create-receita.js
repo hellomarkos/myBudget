@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Frequencia', {
+    return queryInterface.createTable('Receitas', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,6 +10,20 @@ module.exports = {
       },
       descricao: {
         type: Sequelize.STRING
+      },
+      valor: {
+        type: Sequelize.DOUBLE
+      },
+      data: {
+        type: Sequelize.DATE
+      },
+      agendamento: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Agendamentos',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -22,6 +36,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Frequencia');
+    return queryInterface.dropTable('Receitas');
   }
 };
