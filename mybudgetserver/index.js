@@ -9,12 +9,19 @@ const helmet = require('helmet');
 var cors = require('cors')
 require("dotenv-safe").load();
 
+var FrequenciaController = require('./app/controllers/FrequenciaController');
+var AgendamentoController = require('./app/controllers/AgendamentoController');
+var CategoriaController = require('./app/controllers/CategoriaController');
+
+
 var swaggerUi = require('swagger-ui-express');
 var swaggerJSDoc = require("swagger-jsdoc");
 
 app.use(cors())
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 app.use(logger('dev'));
 app.use(helmet());;
 app.use(cookieParser());
@@ -22,23 +29,27 @@ app.options('*', cors())
 
 
 var swaggerDefinition = {
-    info: {
-      title: 'API Sistema MyBudget',
-      version: '1.0.0',
-      description: 'Documentação da API do sistema MyBudget',
-    },
-    host: 'localhost:3000',
-    basePath: '/',
-  };
-  var options = {
-    swaggerDefinition: swaggerDefinition,
-    apis: ['./app/controllers/*.js'],
-  };
+  info: {
+    title: 'API Sistema MyBudget',
+    version: '1.0.0',
+    description: 'Documentação da API do sistema MyBudget',
+  },
+  host: 'localhost:3000',
+  basePath: '/',
+};
+var options = {
+  swaggerDefinition: swaggerDefinition,
+  apis: ['./app/controllers/*.js'],
+};
 var swaggerSpec = swaggerJSDoc(options);
-app.get('/swagger.json', function(req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(swaggerSpec);
+app.get('/swagger.json', function (req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
 });
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.listen(8080)
+app.use('/frequencia', FrequenciaController);
+app.use('/agendamento', AgendamentoController);
+app.use('/categoria', CategoriaController);
+
+app.listen(8080);
