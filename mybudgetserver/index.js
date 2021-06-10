@@ -12,7 +12,7 @@ require("dotenv-safe").load();
 var FrequenciaController = require('./app/controllers/FrequenciaController');
 var AgendamentoController = require('./app/controllers/AgendamentoController');
 var CategoriaController = require('./app/controllers/CategoriaController');
-
+var LoginController = require('./app/controllers/LoginController');
 
 var swaggerUi = require('swagger-ui-express');
 var swaggerJSDoc = require("swagger-jsdoc");
@@ -51,5 +51,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/frequencia', FrequenciaController);
 app.use('/agendamento', AgendamentoController);
 app.use('/categoria', CategoriaController);
+app.use('/login', LoginController);
 
 app.listen(8080);
