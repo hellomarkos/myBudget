@@ -13,6 +13,9 @@ var FrequenciaController = require('./app/controllers/FrequenciaController');
 var AgendamentoController = require('./app/controllers/AgendamentoController');
 var CategoriaController = require('./app/controllers/CategoriaController');
 var LoginController = require('./app/controllers/LoginController');
+var SugestaoInvestimentoController = require('./app/controllers/SugestaoInvestimentoController');
+var ReceitaController = require('./app/controllers/ReceitaController');
+var DespesaController = require('./app/controllers/DespesaController');
 
 var swaggerUi = require('swagger-ui-express');
 var swaggerJSDoc = require("swagger-jsdoc");
@@ -52,5 +55,8 @@ app.use('/frequencia', FrequenciaController);
 app.use('/agendamento', AgendamentoController);
 app.use('/categoria', CategoriaController);
 app.use('/login', LoginController);
+app.use('/sugestao-investimento', SugestaoInvestimentoController);
+app.use('/receita', ReceitaController);
+app.use('/despesa', DespesaController);
 
 app.listen(8080);
